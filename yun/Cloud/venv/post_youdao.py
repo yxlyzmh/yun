@@ -63,14 +63,15 @@ class Youdao():
 
     def fanyi(self):
         response= requests.post(self.url, data=self.yield_form_data(),headers=self.get_headers())
-        import json
         content=json.loads(response.text)
-
         return content['translateResult'][0][0]['tgt']
 
 
 if __name__ == '__main__':
     while(True):
-        i=input("please input :")
-        youdao = Youdao(i)
-        print("fanyi result :",youdao.fanyi())
+        try:
+            i=input("please input :")
+            youdao = Youdao(i)
+            print("fanyi result :",youdao.fanyi())
+        except:
+            pass
